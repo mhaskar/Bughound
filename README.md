@@ -1,4 +1,6 @@
-# What is Bughound
+![Stability](https://img.shields.io/badge/Stability-Beta-yellowgreen) ![Version](https://img.shields.io/badge/Version-Beta-brightgreen) ![Python](https://img.shields.io/badge/Python-3-blue)
+
+# What is Bughound? 
 
 Bughound is an open-source static code analysis tool that analyzes your code and sends the results to Elasticsearch and Kibana to get useful insights about the potential vulnerabilities in your code.
 
