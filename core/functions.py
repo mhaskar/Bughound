@@ -63,7 +63,7 @@ def check_extension(extension):
     if extension[0] == ".":
         return True
     else:
-        return False    
+        return False
 
 
 def check_language(language):
@@ -114,6 +114,31 @@ def clone_repo(repo_url, project_name):
     os.system(command)
     print_success("Cloning Done!")
 
+
+def banner():
+    Yellow = '\33[33m'
+    ENDC = '\033[0m'
+    CRED = '\033[91m'
+    OKGREEN = '\033[92m'
+    banner = r'''{0}
+.______    __    __    _______  __    __    ______    __    __  .__   __.  _______
+|   _  \  |  |  |  |  /  _____||  |  |  |  /  __  \  |  |  |  | |  \ |  | |       \
+|  |_)  | |  |  |  | |  |  __  |  |__|  | |  |  |  | |  |  |  | |   \|  | |  .--.  |
+|   _  <  |  |  |  | |  | |_ | |   __   | |  |  |  | |  |  |  | |  . `  | |  |  |  |
+|  |_)  | |  `--'  | |  |__| | |  |  |  | |  `--'  | |  `--'  | |  |\   | |  '--'  |
+|______/   \______/   \______| |__|  |__|  \______/   \______/  |__| \__| |_______/
+                                                                                    
+ {1}
+
+          {2}\ /
+          oVo
+      \___XXX___/
+       __XXXXX__
+      /__XXXXX__\
+      /   XXX   \
+           V{1}                  {3}V1.0 Beta{1}
+    '''
+    print(banner.format(Yellow, ENDC, CRED, OKGREEN))
 
 
 def get_files(path, extension):
