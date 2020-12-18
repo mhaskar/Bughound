@@ -1,6 +1,7 @@
 ![Stability](https://img.shields.io/badge/Stability-Beta-yellowgreen) ![Version](https://img.shields.io/badge/Version-Beta-brightgreen) ![Python](https://img.shields.io/badge/Python-3-blue)
+![Docker Pulls](https://img.shields.io/docker/pulls/bughound/bughound)
 
-# What is Bughound? 
+# What is Bughound?
 
 Bughound is an open-source static code analysis tool that analyzes your code and sends the results to Elasticsearch and Kibana to get useful insights about the potential vulnerabilities in your code.
 
@@ -10,12 +11,12 @@ You can detect various types of vulnerabilities such as:
 * Command Injection.
 * XXE.
 * Unsafe Deserialization.
-* And more! 
+* And more!
 
 Bughound can analyze `PHP` and `java` code for now, and it contains the most unsafe functions for these languages.
 
 
-***Please note that Bughound results are not 100% accurate, it built to help you identify potential weaknesses during your analysis*** 
+***Please note that Bughound results are not 100% accurate, it built to help you identify potential weaknesses during your analysis***
 
 
 
@@ -31,7 +32,7 @@ The dashboards will give you details about the findings such:
 * Function name.
 * Category of the vulnerability.
 * Line number.
-* And much more! 
+* And much more!
 
 Also using Kibana, you will be able to view the potentially vulnerable code snippet to start doing your analysis and tracing phase to check if it's exploitable or not.
 
@@ -64,6 +65,35 @@ And after installing the requirements in the previous step you can run Bughound 
 
 You will get the main screen of Bughound.
 
+```
+┌─[✗]─[askar@hackbook]─[/opt/bughound]
+└──╼ $./bughound.py
+
+.______    __    __    _______  __    __    ______    __    __  .__   __.  _______
+|   _  \  |  |  |  |  /  _____||  |  |  |  /  __  \  |  |  |  | |  \ |  | |       \
+|  |_)  | |  |  |  | |  |  __  |  |__|  | |  |  |  | |  |  |  | |   \|  | |  .--.  |
+|   _  <  |  |  |  | |  | |_ | |   __   | |  |  |  | |  |  |  | |  . `  | |  |  |  |
+|  |_)  | |  `--'  | |  |__| | |  |  |  | |  `--'  | |  `--'  | |  |\   | |  '--'  |
+|______/   \______/   \______| |__|  |__|  \______/   \______/  |__| \__| |_______/
+
+
+
+          \ /
+          oVo
+      \___XXX___/
+       __XXXXX__
+      /__XXXXX__\
+      /   XXX   \
+           V                  V1.0 Beta
+
+usage: bughound.py [-h] [--path PATH] [--git_repo GIT_REPO] --language
+                   LANGUAGE --extension EXTENSION --name NAME
+bughound.py: error: argument --language is required
+┌─[✗]─[askar@hackbook]─[/opt/bughound]
+└──╼ $
+
+```
+
 ### Docker image installation
 
 To install the Bughound docker image, you can simply do the following:
@@ -80,3 +110,6 @@ That will run the image under a new container called `bughound` and expose the p
 
 After getting two things done, you are ready now to use Bughound!
 
+# Preconfigured Dashboards
+
+If you decided to use the official Bughound docker image, you will get a couple of ready to use dashboards that will help you to do your analysis.
