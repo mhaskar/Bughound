@@ -1,0 +1,29 @@
+{
+"php":
+{
+
+ "regex" : "(\\w*{0}\\w*)\\(.*?\\)",
+ "category":{
+ "XXE": ["loadXML", "DOMDocument"],
+ "Command Injection": ["eval", "system", "shell_exec", "exec", "passthru"],
+ "Deserialization": ["unserialize"],
+ "File Inclusion/Download": ["get_file_contents", "include"],
+ "SQL injection": ["mysql_query", "pg_query", "odbc_exec", "mssql_query"],
+ "SSRF": ["curl_setopt", "curl_exec"]
+
+}
+},
+"java":
+{
+
+ "regex" : "None",
+ "category":{
+ "XXE": ["DocumentBuilderFactory", "SAXParser", "SAXParserFactory"],
+ "Command Injection": ["Runtime.exec", "ProcessBuilder"],
+ "Deserialization": ["readObject", "XMLDecoder", "InputObjectStream"],
+ "File Inclusion/Download": ["Dummy"]
+
+}
+}
+
+}
