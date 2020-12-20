@@ -21,10 +21,13 @@ default_index = "findings"
 
 def verify_connection():
     # Check connection to elastic search
-    req = requests.get(elastic_host)
-    if req.status_code == 200:
-        return True
-    else:
+    try:
+        req = requests.get(elastic_host)
+        if req.status_code == 200:
+            return True
+        else:
+            return False
+    except requests.exceptions.ConnectionError:
         return False
 
 
