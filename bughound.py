@@ -2,11 +2,13 @@
 
 import argparse
 import sys
+from core.config import *
 from core.parser import *
 from core.functions import *
 from core.shipper import *
 
 
+banner()
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument("--path", help="local path of the source code")
