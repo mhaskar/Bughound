@@ -152,14 +152,14 @@ optional arguments:
 └──╼ $
 ```
 
-### Scan Local project
+## Scan Local project
 For example, to scan a local php project, you can use the following command:
 
 `./bughound.py --path /opt/dummyproject --language php --extension .php --name dummyproject`
 
 This command will create a new project called "dummyproject" in the Elasticsearch index, and crawl all the local files with the extension ".php" in the local path "/opt/dummyproject" and ship the results to Elasticsearch.
 
-### Scan remote git repository
+## Scan remote git repository
 Also, you can pull a remote project from git repository using `--git` switch like the following:
 
 `./bughound.py --git https://github.com/DummyCode/DummyProject --language php --extension .php --name dummyproject`
@@ -176,4 +176,4 @@ The following dashboards are available so far:
 * Deserialization dashboard
 * XXE dashboard
 
-These dashboards will give you statistics about the functions and code snippets that was found in the code so you can start your tracing process.
+These dashboards will give you statistics about the functions and code snippets that was found in the code so you can start your analysis process.
