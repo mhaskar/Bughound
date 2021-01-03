@@ -13,10 +13,12 @@ You can detect various types of vulnerabilities such as:
 * Unsafe Deserialization.
 * And more!
 
-Bughound can analyze `PHP` and `java` code for now, and it contains the most unsafe functions for these languages.
+Bughound can analyze `PHP` and `JAVA` code for now, and it contains a group of unsafe functions for these languages.
+
+I will make sure to add more and more functions/languages coverage with time, but for now the main focus is for the project stability itself.
 
 
-***Please note that Bughound results are not 100% accurate, it built to help you identify potential weaknesses during your analysis***
+***Please note that Bughound results are not 100% accurate, it built to help you identify potential weaknesses during your analysis to investigate.***
 
 
 
@@ -86,7 +88,7 @@ You will get the main screen of Bughound.
       /   XXX   \
            V                  V1.0 Beta
 
-usage: bughound.py [-h] [--path PATH] [--git_repo GIT_REPO] --language
+usage: bughound.py [-h] [--path PATH] [--git GIT_REPO] --language
                    LANGUAGE --extension EXTENSION --name NAME
 bughound.py: error: argument --language is required
 ┌─[✗]─[askar@hackbook]─[/opt/bughound]
@@ -113,3 +115,13 @@ After getting two things done, you are ready now to use Bughound!
 # Preconfigured Dashboards
 
 If you decided to use the official Bughound docker image, you will get a couple of ready to use dashboards that will help you to do your analysis.
+
+The following dashboards are available so far:
+* Bughound main dashboard
+* Command injection dashboard
+* Deserialization dashboard
+* XXE dashboard
+
+These dashboards will give you statistics about the functions and code snippets that was found in the code so you can start your tracing process.
+
+# Usage
