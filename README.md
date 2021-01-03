@@ -112,18 +112,6 @@ That will run the image under a new container called `bughound` and expose the p
 
 After getting two things done, you are ready now to use Bughound!
 
-# Preconfigured Dashboards
-
-If you decided to use the official Bughound docker image, you will get a couple of ready to use dashboards that will help you to do your analysis.
-
-The following dashboards are available so far:
-* Bughound main dashboard
-* Command injection dashboard
-* Deserialization dashboard
-* XXE dashboard
-
-These dashboards will give you statistics about the functions and code snippets that was found in the code so you can start your tracing process.
-
 # Usage
 
 To start the analysis process for your code, you should use `Bughound.py` file which has some options, to see these options via the help banner, you can use the following command:
@@ -164,11 +152,28 @@ optional arguments:
 └──╼ $
 ```
 
-#### Scan Local project
+### Scan Local project
 For example, to scan a local php project, you can use the following command:
 
 `./bughound.py --path /opt/dummyproject --language php --extension .php --name dummyproject`
 
 This command will create a new project called "dummyproject" in the Elasticsearch index, and crawl all the local files with the extension ".php" in the local path "/opt/dummyproject" and ship the results to Elasticsearch.
 
-Also, you can pull a remote github project
+### Scan remote git repository
+Also, you can pull a remote project from git repository using `--git` switch like the following:
+
+`./bughound.py --git https://github.com/DummyCode/DummyProject --language php --extension .php --name dummyproject`
+
+Bughound will clone the code for you and save it in `projects` directory, then will scan it.
+
+# Preconfigured Dashboards
+
+If you decided to use the official Bughound docker image, you will get a couple of ready to use dashboards that will help you to do your analysis.
+
+The following dashboards are available so far:
+* Bughound main dashboard
+* Command injection dashboard
+* Deserialization dashboard
+* XXE dashboard
+
+These dashboards will give you statistics about the functions and code snippets that was found in the code so you can start your tracing process.
