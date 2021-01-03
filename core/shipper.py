@@ -2,13 +2,7 @@
 
 import requests
 import json
-
-# Temp Config
-elastic_host = "http://localhost:9200/"
-
-kibana_host = "http://localhost:5601/"
-
-default_index = "findings"
+from core.config import *
 
 # Create findings index
 
