@@ -125,3 +125,41 @@ The following dashboards are available so far:
 These dashboards will give you statistics about the functions and code snippets that was found in the code so you can start your tracing process.
 
 # Usage
+
+To start the analysis process for your code, you should use `Bughound.py` file which has some options, to see these options via the help banner, you can use the following command:
+
+```
+┌─[✗]─[askar@hackbook]─[/opt/bughound]
+└──╼ $./bughound.py -h
+
+.______    __    __    _______  __    __    ______    __    __  .__   __.  _______
+|   _  \  |  |  |  |  /  _____||  |  |  |  /  __  \  |  |  |  | |  \ |  | |       \
+|  |_)  | |  |  |  | |  |  __  |  |__|  | |  |  |  | |  |  |  | |   \|  | |  .--.  |
+|   _  <  |  |  |  | |  | |_ | |   __   | |  |  |  | |  |  |  | |  . `  | |  |  |  |
+|  |_)  | |  `--'  | |  |__| | |  |  |  | |  `--'  | |  `--'  | |  |\   | |  '--'  |
+|______/   \______/   \______| |__|  |__|  \______/   \______/  |__| \__| |_______/
+
+
+
+          \ /
+          oVo
+      \___XXX___/
+       __XXXXX__
+      /__XXXXX__\
+      /   XXX   \
+           V                  V1.0 Beta
+
+usage: bughound.py [-h] [--path PATH] [--git GIT] --language LANGUAGE
+                   --extension EXTENSION --name NAME
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --path PATH           local path of the source code
+  --git GIT             git repository URL
+  --language LANGUAGE   the used programming language
+  --extension EXTENSION
+                        extension to search for
+  --name NAME           project name to use
+┌─[askar@hackbook]─[/opt/bughound]
+└──╼ $
+```
