@@ -12,7 +12,7 @@ banner()
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument("--path", help="local path of the source code")
-argparser.add_argument("--git_repo", help="git repository URL")
+argparser.add_argument("--git", help="git repository URL")
 #argparser.add_argument("--init", help="initialize Elastic and Kibanna requirements", action="store_true")
 argparser.add_argument("--language", help="the used programming language", required=True)
 argparser.add_argument("--extension", help="extension to search for", required=True)
@@ -20,7 +20,7 @@ argparser.add_argument("--name", help="project name to use", required=True)
 arguments = argparser.parse_args()
 
 local_path = arguments.path
-git_repo = arguments.git_repo
+git_repo = arguments.git
 language = arguments.language
 extension = arguments.extension
 project_name = arguments.name
