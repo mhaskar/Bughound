@@ -163,3 +163,12 @@ optional arguments:
 ┌─[askar@hackbook]─[/opt/bughound]
 └──╼ $
 ```
+
+#### Scan Local project
+For example, to scan a local php project, you can use the following command:
+
+`./bughound.py --path /opt/dummyproject --language php --extension .php --name dummyproject`
+
+This command will create a new project called "dummyproject" in the Elasticsearch index, and crawl all the local files with the extension ".php" in the local path "/opt/dummyproject" and ship the results to Elasticsearch.
+
+Also, you can pull a remote github project
