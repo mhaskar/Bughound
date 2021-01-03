@@ -3,7 +3,6 @@
 import time
 import sys
 import re
-import copy
 from core.functions import *
 from core.shipper import *
 from hashlib import sha512
