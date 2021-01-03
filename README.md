@@ -177,3 +177,7 @@ The following dashboards are available so far:
 * XXE dashboard
 
 These dashboards will give you statistics about the functions and code snippets that was found in the code so you can start your analysis process.
+
+# License
+
+This project is licensed under the GPL-3.0 License - see the LICENSE file for details
