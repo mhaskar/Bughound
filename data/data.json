@@ -20,7 +20,7 @@
  "category":{
  "XXE": ["DocumentBuilderFactory", "SAXParser", "SAXParserFactory"],
  "Command Injection": ["Runtime.exec", "ProcessBuilder"],
- "Deserialization": ["readObject", "XMLDecoder", "InputObjectStream"],
+ "Deserialization": ["readObject", "XMLDecoder", "InputObjectStream"]
 
 }
 }
