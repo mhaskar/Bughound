@@ -9,6 +9,7 @@ from core.shipper import *
 
 
 banner()
+help()
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument("--path", help="local path of the source code")
@@ -18,6 +19,7 @@ argparser.add_argument("--language", help="the used programming language", requi
 argparser.add_argument("--extension", help="extension to search for", required=True)
 argparser.add_argument("--name", help="project name to use", required=True)
 arguments = argparser.parse_args()
+
 
 local_path = arguments.path
 git_repo = arguments.git
@@ -65,6 +67,8 @@ if git_repo is None and local_path:
         p = parser(file, project_name, language)
         file_metadata = p.calculate_metdata()
         findings = p.get_functions()
+    print_url(project_name)
+
 
 
 if local_path is None and git_repo:
@@ -75,6 +79,7 @@ if local_path is None and git_repo:
         p = parser(file, project_name, language)
         file_metadata = p.calculate_metdata()
         functions = p.get_functions()
+    print_url(project_name)
 
 
 if local_path is None and git_repo is None:
