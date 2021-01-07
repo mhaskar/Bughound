@@ -9,9 +9,8 @@ from hashlib import sha512
 php_final_findings = []
 previous_findings = []
 
+
 class parser:
-
-
     def __init__(self, file, project_name, language):
         self.project_name = project_name
         self.file = file
@@ -38,7 +37,6 @@ class parser:
 
     # Get unsafe functions from a file
     def get_functions(self):
-
         final_findings = []
         metadata_existed = False
 
@@ -93,6 +91,8 @@ class parser:
                             print_success("Shipping entry")
                             ship_entry(self.project_name, metadata)
 
+
+
         else:
             line_number = 0
             lines = read_file_lines(file)
@@ -132,6 +132,8 @@ class parser:
                             metadata[self.project_name]["line"] = code_snippet
                             print_success("Shipping entry")
                             ship_entry(self.project_name, metadata)
+
+
                             #metadata.clear()
                             #print([file, function, line_number])
                             #if [file, function, line_number] in previous_findings:
