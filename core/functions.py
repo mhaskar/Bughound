@@ -141,6 +141,17 @@ def banner():
     print(banner.format(Yellow, ENDC, CRED, OKGREEN))
 
 
+def help():
+    print_success("Example: ./bughound3.py --path vulnerable_code/ --language php --extension .php --name testproject\n")
+
+
+def print_url(project):
+    link = "http://localhost:5601/app/dashboards#/view/f2a02140-3b38-11eb-9206-9dc3fa02fbe6?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:'project:%22{0}%22'),timeRestore:!f,title:'Bughound%20Main%20Dashboard',viewMode:view)".format(project)
+    print_success("You can access the project name using this link: %s" % link)
+
+def check_vm():
+    pass
+
 def get_files(path, extension):
     files_list = []
     if check_path(path):
