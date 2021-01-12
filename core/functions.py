@@ -3,6 +3,7 @@
 import os
 import sys
 import json
+import time
 from core.shipper import *
 from termcolor import cprint
 
@@ -10,6 +11,10 @@ from termcolor import cprint
 def print_error(text):
     message = "[-] {0}".format(text)
     cprint(message, "red")
+
+def print_note(text):
+    message = "[!] {0}".format(text)
+    cprint(message, "yellow")
 
 
 def print_success(text):
@@ -146,18 +151,21 @@ def help():
     print_success("Example: ./bughound3.py --path vulnerable_code/ --language php --extension .php --name testproject\n")
 
 
-def print_url(project):
+def print_url(project, start_time, total):
+    print_note("Scanning done!")
+    end_time = time.time()
+    total_time = str(end_time - start_time)[0:5]
+    print_note("Total scan time is: %s seconds" % total_time)
+    print_note("Total issues found : %s" % total)
     link = "http://localhost:5601/app/dashboards#/view/f2a02140-3b38-11eb-9206-9dc3fa02fbe6?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:'project:%22{0}%22'),timeRestore:!f,title:'Bughound%20Main%20Dashboard',viewMode:view)".format(project)
     print_success("You can access the project name using this link:")
     print(link)
 
-def check_vm():
-    pass
 
 def get_files(path, extension):
     files_list = []
     if check_path(path):
-        print_success("Scanning started for the script")
+        print_success("Scanning started!")
         for root, dirs, files in os.walk(path, topdown=False):
                 for fi in files:
                     dfile = os.path.join(root, fi)
