@@ -59,6 +59,7 @@ def get_language_data(language):
     json_data = dict(json.loads(data))
     return json_data[language]["category"]
 
+
 def check_extension(extension):
     if extension[0] == ".":
         return True
@@ -147,7 +148,8 @@ def help():
 
 def print_url(project):
     link = "http://localhost:5601/app/dashboards#/view/f2a02140-3b38-11eb-9206-9dc3fa02fbe6?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:'project:%22{0}%22'),timeRestore:!f,title:'Bughound%20Main%20Dashboard',viewMode:view)".format(project)
-    print_success("You can access the project name using this link: %s" % link)
+    print_success("You can access the project name using this link:")
+    print(link)
 
 def check_vm():
     pass
