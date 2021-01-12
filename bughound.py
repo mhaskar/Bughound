@@ -18,6 +18,8 @@ argparser.add_argument("--git", help="git repository URL")
 argparser.add_argument("--language", help="the used programming language", required=True)
 argparser.add_argument("--extension", help="extension to search for", required=True)
 argparser.add_argument("--name", help="project name to use", required=True)
+argparser.add_argument("--verbose", help="show debugging messages", default=False, required=False, const=True, nargs='?')
+
 arguments = argparser.parse_args()
 
 
@@ -26,6 +28,8 @@ git_repo = arguments.git
 language = arguments.language
 extension = arguments.extension
 project_name = arguments.name
+verbose = arguments.verbose
+
 
 
 if check_language(language) == False:
@@ -52,6 +56,7 @@ if verify_connection():
                     print_error("Please change it")
                     exit()
 
+        fix_disk_read_only()
         print_success("ELK is already configured!")
 
 
@@ -66,7 +71,7 @@ if git_repo is None and local_path:
     for file in files:
         p = parser(file, project_name, language)
         file_metadata = p.calculate_metdata()
-        findings = p.get_functions()
+        findings = p.get_functions(verbose)
     print_url(project_name)
 
 
@@ -78,7 +83,7 @@ if local_path is None and git_repo:
     for file in files:
         p = parser(file, project_name, language)
         file_metadata = p.calculate_metdata()
-        functions = p.get_functions()
+        functions = p.get_functions(verbose)
     print_url(project_name)
 
 
