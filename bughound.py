@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import argparse
+import time
 import sys
 from core.config import *
 from core.parser import *
@@ -30,7 +31,7 @@ extension = arguments.extension
 project_name = arguments.name
 verbose = arguments.verbose
 
-
+start_time = time.time()
 
 if check_language(language) == False:
     print_error("Language %s not supported!" % language)
@@ -72,7 +73,9 @@ if git_repo is None and local_path:
         p = parser(file, project_name, language)
         file_metadata = p.calculate_metdata()
         findings = p.get_functions(verbose)
-    print_url(project_name)
+
+    total_findings_to_print = get_total_findings()
+    print_url(project_name, start_time, total_findings_to_print)
 
 
 
@@ -84,8 +87,9 @@ if local_path is None and git_repo:
         p = parser(file, project_name, language)
         file_metadata = p.calculate_metdata()
         functions = p.get_functions(verbose)
-    print_url(project_name)
 
+    total_findings_to_print = get_total_findings()
+    print_url(project_name, start_time, total_findings_to_print)
 
 if local_path is None and git_repo is None:
     print_error("please specify the git repo or local path to scan")
