@@ -37,6 +37,22 @@ def check_index():
     else:
         return False
 
+#curl -XPUT -H "Content-Type: application/json" http://localhost:9200/_cluster/settings -d '{ "transient": { "cluster.routing.allocation.disk.threshold_enabled": false } }'
+
+
+#curl -XPUT -H "Content-Type: application/json" http://localhost:9200/_all/_settings -d '{"index.blocks.read_only_allow_delete": null}'
+
+def fix_disk_read_only():
+
+    data1 = {"transient": {"cluster.routing.allocation.disk.threshold_enabled": "false"}}
+    data2 =  {"index.blocks.read_only_allow_delete": None}
+
+
+    request1_url = elastic_host + "_cluster/settings"
+    request2_url = elastic_host + "_all/_settings"
+
+    request1 = requests.put(request1_url, json=data1)
+    request2 = requests.put(request2_url, json=data2)
 
 def create_index():
     # Create new index
@@ -59,7 +75,7 @@ def create_index():
        }
         }
     index_request = requests.put(request_url, json=mapping)
-    print(index_request.text)
+    #print(index_request.text)
 
 
 def create_index_pattern():
@@ -82,7 +98,8 @@ def create_index_pattern():
     print(request.text)
 
 
-def ship_entry(project_name, entry):
+
+def ship_entry(project_name, entry, verbose):
     #xprint(entry)
     if entry:
         filename = entry[project_name]["filename"]
@@ -107,5 +124,6 @@ def ship_entry(project_name, entry):
         }
         request_url = elastic_host + "findings" + "/_doc"
         request = requests.post(request_url, json=data)
-        print(request.text)
+        if verbose:
+            print(request.text)
     pass
