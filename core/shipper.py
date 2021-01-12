@@ -12,6 +12,8 @@ from core.config import *
 
 # Ship the findings
 
+total_findings = 0
+
 
 def verify_connection():
     # Check connection to elastic search
@@ -100,6 +102,7 @@ def create_index_pattern():
 
 
 def ship_entry(project_name, entry, verbose):
+    global total_findings
     #xprint(entry)
     if entry:
         filename = entry[project_name]["filename"]
@@ -124,6 +127,10 @@ def ship_entry(project_name, entry, verbose):
         }
         request_url = elastic_host + "findings" + "/_doc"
         request = requests.post(request_url, json=data)
+        total_findings = total_findings + 1
         if verbose:
             print(request.text)
     pass
+
+def get_total_findings():
+    return total_findings
