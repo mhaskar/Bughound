@@ -36,7 +36,7 @@ class parser:
 
 
     # Get unsafe functions from a file
-    def get_functions(self):
+    def get_functions(self, verbose):
         final_findings = []
         metadata_existed = False
 
@@ -88,8 +88,9 @@ class parser:
                             #print(code_snippet)
                             metadata[self.project_name]["line_number"] = line_number
                             metadata[self.project_name]["line"] = code_snippet
-                            print_success("Shipping entry")
-                            ship_entry(self.project_name, metadata)
+                            if verbose:
+                                print_success("Shipping entry")
+                            ship_entry(self.project_name, metadata, verbose)
 
 
 
@@ -130,8 +131,9 @@ class parser:
                             #print(code_snippet)
                             metadata[self.project_name]["line_number"] = line_number
                             metadata[self.project_name]["line"] = code_snippet
-                            print_success("Shipping entry")
-                            ship_entry(self.project_name, metadata)
+                            if verbose:
+                                print_success("Shipping entry")
+                            ship_entry(self.project_name, metadata, verbose)
 
 
                             #metadata.clear()
