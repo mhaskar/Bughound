@@ -3,6 +3,9 @@
 
 # What is Bughound?
 
+![Bughound Logo](https://shells.systems/wp-content/uploads/2021/01/Bughound-Logo.png)
+
+
 Bughound is an open-source static code analysis tool that analyzes your code and sends the results to Elasticsearch and Kibana to get useful insights about the potential vulnerabilities in your code.
 
 Bughound has its own Elasticsearch and Kibana Docker image that is preconfigured with dashboards to give you a strong visualization for the findings.
