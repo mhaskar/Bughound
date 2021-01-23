@@ -190,7 +190,7 @@ These dashboards will give you statistics about the functions and code snippets 
 # More resources
 
 For more information about Bughound check the following articles:
-* [Unveiling BugHound: a static code analysis tool based on ElasticSearch](https://shells.systems/ocs-inventory-ng-v2-7-remote-command-execution-cve-2020-14947/)
+* [Unveiling BugHound: a static code analysis tool based on ElasticSearch](https://shells.systems/unveiling-bughound-a-static-code-analysis-tool-based-on-elasticsearch)
 
 
 # License
