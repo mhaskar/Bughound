@@ -63,12 +63,12 @@ Make sure to get the latest version of Bughound using the following command:
 
 And after installing the requirements in the previous step you can run Bughound using the following command:
 
-`./Bughound.py`
+`./bughound.py`
 
 You will get the main screen of Bughound.
 
 ```
-┌─[✗]─[askar@hackbook]─[/opt/bughound]
+┌─[askar@hackbook]─[/opt/bughound]
 └──╼ $./bughound.py
 
 .______    __    __    _______  __    __    ______    __    __  .__   __.  _______
@@ -88,8 +88,10 @@ You will get the main screen of Bughound.
       /   XXX   \
            V                  V1.0 Beta
 
-usage: bughound.py [-h] [--path PATH] [--git GIT_REPO] --language
-                   LANGUAGE --extension EXTENSION --name NAME
+[+] Example: ./bughound3.py --path vulnerable_code/ --language php --extension .php --name testproject
+
+usage: bughound.py [-h] [--path PATH] [--git GIT] --language LANGUAGE
+                   --extension EXTENSION --name NAME [--verbose [VERBOSE]]
 bughound.py: error: argument --language is required
 ┌─[✗]─[askar@hackbook]─[/opt/bughound]
 └──╼ $
@@ -109,6 +111,10 @@ Once we pulled the image, we can run it using the following command:
 `docker run --name bughound -p5601:5601 -p 9200:9200 bughound/bughound`
 
 That will run the image under a new container called `bughound` and expose the ports that are needed by Bughound to communicate Elasticsearch and Kibana to your host.
+
+You may need to increase the max virtual memory in order to use the image, so please make sure to run this command:
+
+`sysctl -w vm.max_map_count=262144`
 
 After getting two things done, you are ready now to use Bughound!
 
@@ -137,8 +143,10 @@ To start the analysis process for your code, you should use `Bughound.py` file w
       /   XXX   \
            V                  V1.0 Beta
 
+[+] Example: ./bughound3.py --path vulnerable_code/ --language php --extension .php --name testproject
+
 usage: bughound.py [-h] [--path PATH] [--git GIT] --language LANGUAGE
-                   --extension EXTENSION --name NAME
+                   --extension EXTENSION --name NAME [--verbose [VERBOSE]]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -148,6 +156,7 @@ optional arguments:
   --extension EXTENSION
                         extension to search for
   --name NAME           project name to use
+  --verbose [VERBOSE]   show debugging messages
 ┌─[askar@hackbook]─[/opt/bughound]
 └──╼ $
 ```
@@ -177,6 +186,12 @@ The following dashboards are available so far:
 * XXE dashboard
 
 These dashboards will give you statistics about the functions and code snippets that was found in the code so you can start your analysis process.
+
+# More resources
+
+For more information about Bughound check the following articles:
+* [Unveiling BugHound: a static code analysis tool based on ElasticSearch](https://shells.systems/ocs-inventory-ng-v2-7-remote-command-execution-cve-2020-14947/)
+
 
 # License
 
